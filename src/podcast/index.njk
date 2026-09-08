@@ -1,0 +1,21 @@
+---
+layout: base.njk
+title: Podcast
+section: podcast
+---
+<div class="page-head">
+  <span class="label kicker">{{ site.podcast.name }}</span>
+  <h1 class="h1 display balance">One dad, two boys, and a chapter at a time.</h1>
+</div>
+<div class="subscribe-row" style="margin-bottom:50px;">
+  <a class="pill" href="{{ site.podcast.applePodcasts }}">Apple Podcasts</a>
+  <a class="pill" href="{{ site.podcast.spotify }}">Spotify</a>
+  <a class="pill" href="{{ site.podcast.youtube }}">YouTube</a>
+</div>
+<ul class="ep-list">
+  {% for ep in collections.episodes %}
+  <li><span class="ep-num">{{ ep.data.episodeNumber }}</span><span class="ep-list-title"><a href="{{ ep.url }}">{{ ep.data.title }}</a></span><span class="ep-dur">{{ ep.data.duration }}</span></li>
+  {% else %}
+  <p style="color:var(--text-dark-muted)">No episodes published yet — the first one's on its way.</p>
+  {% endfor %}
+</ul>

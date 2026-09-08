@@ -1,0 +1,114 @@
+---
+layout: base.njk
+---
+<section class="hero">
+  <div class="book">
+    <div>
+      <span class="label eyebrow">A father's study, made public</span>
+      <h1 class="h1 display balance">The Bible wasn't written<br>just to teach us <em>about</em> God.</h1>
+      <p class="lede">It was written to show us how to live. Free tools for studying it, a podcast for talking through it with my sons, and notes for carrying Sunday into Monday.</p>
+      <div class="cta-row">
+        <a class="btn solid" href="/apps/">Get the apps</a>
+        <a class="btn outline" href="/podcast/">Hear the podcast</a>
+      </div>
+    </div>
+    <div class="spine"><div class="ribbon-tab"></div></div>
+    <div class="verse-card">
+      <span class="verse-mark">&ldquo;</span>
+      <p class="verse">Your word is a lamp to my feet and a light to my path.</p>
+      <span class="verse-ref">Psalm 119:105</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="apps">
+  <div class="section-head">
+    <div><span class="label kicker">01 — Tools</span><h2 class="h2 display">Free, and built for real study</h2></div>
+    <p class="section-dek">Two apps, made for two different habits — one for digging into a passage, one for showing up to pray.</p>
+  </div>
+  <div class="apps-grid">
+    {% for app in apps %}
+    <div class="app-card">
+      <div class="app-icon"><img src="{{ app.icon }}" alt="{{ app.name }} app icon"></div>
+      <div>
+        <div class="app-name display">{{ app.name }}</div>
+        <span class="app-status">{{ app.status }}</span>
+        <p class="app-desc">{{ app.description }}</p>
+        <a class="app-link" href="{{ app.url }}">Download the app →</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" id="podcast">
+  <div class="section-head">
+    <div><span class="label kicker">02 — Podcast</span><h2 class="h2 display">{{ site.podcast.name }}</h2></div>
+    <p class="section-dek">One dad, two boys, and a chapter at a time — recorded, not rehearsed.</p>
+  </div>
+  {% set latestEp = collections.episodes | first %}
+  {% if latestEp %}
+  <div class="podcast-grid">
+    <div class="player">
+      <div class="wave">
+        {% for h in [30,55,40,80,60,35,70,45,90,50,65,30,75,40,55,35,60,80,45,65] %}<i style="height:{{ h }}%"></i>{% endfor %}
+      </div>
+      <div class="player-row">
+        <button class="play" aria-label="Play latest episode"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></button>
+        <div class="player-meta"><strong>Ep. {{ latestEp.data.episodeNumber }} · {{ latestEp.data.duration }}</strong>{{ latestEp.data.recordedNote or "Recorded at the kitchen table" }}</div>
+      </div>
+    </div>
+    <div>
+      <h3 class="ep-title"><a href="{{ latestEp.url }}">{{ latestEp.data.title }}</a></h3>
+      <p class="ep-desc">{{ latestEp.data.dek }}</p>
+      <div class="subscribe-row">
+        <a class="pill" href="{{ site.podcast.applePodcasts }}">Apple Podcasts</a>
+        <a class="pill" href="{{ site.podcast.spotify }}">Spotify</a>
+        <a class="pill" href="{{ site.podcast.youtube }}">YouTube</a>
+      </div>
+      <ul class="ep-list">
+        {% for ep in collections.episodes | limit(4) %}
+        {% if not loop.first %}
+        <li><span class="ep-num">{{ ep.data.episodeNumber }}</span><span class="ep-list-title"><a href="{{ ep.url }}">{{ ep.data.title }}</a></span><span class="ep-dur">{{ ep.data.duration }}</span></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+</section>
+
+<section class="section on-parchment notepage" id="notes">
+  <div class="section-head">
+    <div><span class="label kicker">03 — Sermon Notes</span><h2 class="h2 display">Carrying Sunday into Monday</h2></div>
+    <p class="section-dek">A weekly breakdown of the sermon — the parts worth sitting with after the building empties out.</p>
+  </div>
+  <div class="notes-grid">
+    {% for note in collections.sermonNotes | limit(3) %}
+    <div class="note-card">
+      <span class="note-week">Week {{ note.data.week }}</span>
+      <div class="note-title">{{ note.data.title }}</div>
+      <div class="note-ref">{{ note.data.reference }}</div>
+      <a class="note-link" href="{{ note.url }}">Read the breakdown →</a>
+    </div>
+    {% endfor %}
+  </div>
+  <a class="section-foot-link" href="/sermon-notes/">See all sermon notes →</a>
+</section>
+
+<section class="section" id="field-notes">
+  <div class="section-head">
+    <div><span class="label kicker">04 — Field Notes</span><h2 class="h2 display">Where the news gets loud</h2></div>
+    <p class="section-dek">Here's the text underneath the headline — a Biblical worldview, applied to whatever's in front of us this week.</p>
+  </div>
+  <div class="posts-grid">
+    {% for post in collections.blogPosts | limit(3) %}
+    <div class="post-card">
+      <span class="post-tag">{{ post.data.tag }}</span>
+      <div class="post-title"><a href="{{ post.url }}">{{ post.data.title }}</a></div>
+      <p class="post-dek">{{ post.data.dek }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  <a class="section-foot-link" href="/blog/">Read more Field Notes →</a>
+</section>

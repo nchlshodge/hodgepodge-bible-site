@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{{ description or site.tagline }}">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="topbar"></div>
+  <div class="shell">
+    <header class="site-header">
+      <a href="/" class="wordmark">Hodge<span>podge</span> Bible</a>
+      <nav class="site-nav">
+        <a href="/apps/" {% if section == 'apps' %}aria-current="page"{% endif %}>Apps</a><div class="sep"></div>
+        <a href="/podcast/" {% if section == 'podcast' %}aria-current="page"{% endif %}>Podcast</a><div class="sep"></div>
+        <a href="/sermon-notes/" {% if section == 'sermon-notes' %}aria-current="page"{% endif %}>Sermon Notes</a><div class="sep"></div>
+        <a href="/blog/" {% if section == 'blog' %}aria-current="page"{% endif %}>Field Notes</a>
+      </nav>
+    </header>
+
+    {{ content | safe }}
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-tag">Free. <span class="accent">Always.</span></div>
+        <nav class="footer-nav">
+          <a href="/apps/">Apps</a><a href="/podcast/">Podcast</a><a href="/sermon-notes/">Sermon Notes</a><a href="/blog/">Field Notes</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; {{ meta.year }} Hodgepodge Bible</span>
+        <span>Built by a dad, not a committee.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

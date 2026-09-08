@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: Sermon Notes
+section: sermon-notes
+---
+<div class="page-head">
+  <span class="label kicker">Sermon Notes</span>
+  <h1 class="h1 display balance">Carrying Sunday into Monday.</h1>
+</div>
+<div class="listing">
+  {% for note in collections.sermonNotes %}
+  <div class="listing-item">
+    <div>
+      <span class="label kicker" style="margin-bottom:8px;">Week {{ note.data.week }} · {{ note.data.reference }}</span>
+      <div class="post-title"><a href="{{ note.url }}">{{ note.data.title }}</a></div>
+      <div class="post-meta" style="margin-top:10px;">{{ note.data.date | readableDate }}</div>
+    </div>
+  </div>
+  {% else %}
+  <p style="color:var(--text-dark-muted)">No sermon notes yet — the first breakdown's coming soon.</p>
+  {% endfor %}
+</div>

@@ -1,0 +1,13 @@
+---
+layout: base.njk
+section: sermon-notes
+---
+<article class="article">
+  <a class="back-link" href="/sermon-notes/">← Sermon Notes</a>
+  <span class="label kicker article-kicker">Week {{ week }} · {{ reference }}</span>
+  <h1 class="display article-title balance">{{ title }}</h1>
+  <div class="article-meta"><span>{{ date | readableDate }}</span></div>
+  <div class="article-body">
+    {{ content | safe }}
+  </div>
+</article>

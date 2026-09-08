@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: Apps
+section: apps
+---
+<div class="page-head">
+  <span class="label kicker">Free Tools</span>
+  <h1 class="h1 display balance">Built for real study, not just screen time.</h1>
+</div>
+<div class="apps-grid" style="margin-bottom:40px;">
+  {% for app in apps %}
+  <div class="app-card">
+    <div class="app-icon"><img src="{{ app.icon }}" alt="{{ app.name }} app icon"></div>
+    <div>
+      <div class="app-name display">{{ app.name }}</div>
+      <span class="app-status">{{ app.status }}</span>
+      <p class="app-desc">{{ app.description }}</p>
+      <a class="app-link" href="{{ app.url }}">Download the app →</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>

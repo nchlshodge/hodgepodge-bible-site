@@ -1,0 +1,85 @@
+backend:
+  name: github
+  repo: nchlshodge/hodgepodge-bible-site
+  branch: main
+
+media_folder: "src/assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+collections:
+  - name: "blog"
+    label: "Field Notes (Blog)"
+    folder: "src/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog-post.njk" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tag", name: "tag", widget: "string", hint: "e.g. Culture, Neighbors, Technology" }
+      - { label: "Dek (one-line summary)", name: "dek", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "sermon_notes"
+    label: "Sermon Notes"
+    folder: "src/sermon-notes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "sermon-note.njk" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Week Number", name: "week", widget: "number" }
+      - { label: "Scripture Reference", name: "reference", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "podcast"
+    label: "Podcast Episodes"
+    folder: "src/podcast"
+    create: true
+    slug: "episode-{{fields.episodeNumber}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "episode.njk" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Episode Number", name: "episodeNumber", widget: "number" }
+      - { label: "Duration", name: "duration", widget: "string", hint: "e.g. 38 min" }
+      - { label: "Dek (one-line summary)", name: "dek", widget: "text" }
+      - { label: "Recorded Note", name: "recordedNote", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "apps"
+    label: "Apps"
+    files:
+      - file: "src/_data/apps.json"
+        name: "apps"
+        label: "Apps List"
+        fields:
+          - name: apps
+            label: Apps
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: "Icon Path", name: icon, widget: string }
+              - { label: Status, name: status, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: URL, name: url, widget: string }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "src/_data/site.json"
+        name: "site"
+        label: "Site Settings"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: "Site URL", name: url, widget: string }
+          - label: Podcast
+            name: podcast
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: "Apple Podcasts URL", name: applePodcasts, widget: string }
+              - { label: "Spotify URL", name: spotify, widget: string }
+              - { label: "YouTube URL", name: youtube, widget: string }

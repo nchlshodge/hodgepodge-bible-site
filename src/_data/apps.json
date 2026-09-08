@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Scripture Scout",
+    "icon": "/assets/img/scripture-scout.png",
+    "status": "Available now",
+    "description": "Trace a theme across the whole book, verse to verse — built for readers who want to dig deeper, not skim faster.",
+    "url": "https://nchlshodge.github.io/scripturescout/"
+  },
+  {
+    "name": "Groundwork",
+    "icon": "/assets/img/groundwork.png",
+    "status": "Available now",
+    "description": "Make prayer a daily habit instead of a Sunday-only one — short prompts that meet you before the day gets loud.",
+    "url": "https://nchlshodge.github.io/groundwork/"
+  }
+]
