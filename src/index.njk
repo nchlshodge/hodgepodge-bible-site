@@ -4,27 +4,27 @@ layout: base.njk
 <section class="hero">
   <div class="book">
     <div>
-      <span class="label eyebrow">A father's study, made public</span>
-      <h1 class="h1 display balance">The Bible wasn't written<br>just to teach us <em>about</em> God.</h1>
-      <p class="lede">It was written to show us how to live. Free tools for studying it, a podcast for talking through it with my sons, and notes for carrying Sunday into Monday.</p>
+      <span class="label eyebrow">Not more rules. A relationship that frees you.</span>
+      <h1 class="h1 display balance">The Bible isn't a <em>rulebook.</em><br>It's how you get free.</h1>
+      <p class="lede">Somewhere along the way, Scripture got handed to us like a behavior checklist. It was never that — it's a relationship that changes you from the inside, meant to shape everything: how you parent, how you watch the news, how you live on an ordinary Tuesday.</p>
       <div class="cta-row">
-        <a class="btn solid" href="/apps/">Get the apps</a>
-        <a class="btn outline" href="/podcast/">Hear the podcast</a>
+        <a class="btn solid" href="/apps/">Start with a chapter</a>
+        <a class="btn outline" href="/about/">Why this exists</a>
       </div>
     </div>
     <div class="spine"><div class="ribbon-tab"></div></div>
     <div class="verse-card">
       <span class="verse-mark">&ldquo;</span>
-      <p class="verse">Your word is a lamp to my feet and a light to my path.</p>
-      <span class="verse-ref">Psalm 119:105</span>
+      <p class="verse">It is for freedom that Christ has set us free.</p>
+      <span class="verse-ref">Galatians 5:1</span>
     </div>
   </div>
 </section>
 
 <section class="section" id="apps">
   <div class="section-head">
-    <div><span class="label kicker">01 — Tools</span><h2 class="h2 display">Free, and built for real study</h2></div>
-    <p class="section-dek">Two apps, made for two different habits — one for digging into a passage, one for showing up to pray.</p>
+    <div><span class="label kicker">01 — Start Here</span><h2 class="h2 display">Start with a chapter, not a system</h2></div>
+    <p class="section-dek">Free tools built for actually opening the text — not another program to maintain, just a place to start.</p>
   </div>
   <div class="apps-grid">
     {% for app in apps %}
@@ -43,8 +43,8 @@ layout: base.njk
 
 <section class="section" id="podcast">
   <div class="section-head">
-    <div><span class="label kicker">02 — Podcast</span><h2 class="h2 display">{{ site.podcast.name }}</h2></div>
-    <p class="section-dek">One dad, two boys, and a chapter at a time — recorded, not rehearsed.</p>
+    <div><span class="label kicker">02 — Bring It Home</span><h2 class="h2 display">{{ site.podcast.name }}</h2></div>
+    <p class="section-dek">Hearing a passage argued out loud by two kids who haven't learned to fake agreement yet — recorded, not rehearsed.</p>
   </div>
   {% set latestEp = collections.episodes | first %}
   {% if latestEp %}
@@ -80,8 +80,8 @@ layout: base.njk
 
 <section class="section on-parchment notepage" id="notes">
   <div class="section-head">
-    <div><span class="label kicker">03 — Sermon Notes</span><h2 class="h2 display">Carrying Sunday into Monday</h2></div>
-    <p class="section-dek">A weekly breakdown of the sermon — the parts worth sitting with after the building empties out.</p>
+    <div><span class="label kicker">03 — Carry It Into the Week</span><h2 class="h2 display">Carrying Sunday into Monday</h2></div>
+    <p class="section-dek">A weekly breakdown of the sermon — because a relationship doesn't end when the building empties out.</p>
   </div>
   <div class="notes-grid">
     {% for note in collections.sermonNotes | limit(3) %}
@@ -98,8 +98,8 @@ layout: base.njk
 
 <section class="section" id="field-notes">
   <div class="section-head">
-    <div><span class="label kicker">04 — Field Notes</span><h2 class="h2 display">Where the news gets loud</h2></div>
-    <p class="section-dek">Here's the text underneath the headline — a Biblical worldview, applied to whatever's in front of us this week.</p>
+    <div><span class="label kicker">04 — Everywhere Else</span><h2 class="h2 display">Where the news gets loud</h2></div>
+    <p class="section-dek">A relationship doesn't stay quiet during the week. Here's what it has to say about whatever's in the headlines.</p>
   </div>
   <div class="posts-grid">
     {% for post in collections.blogPosts | limit(3) %}
