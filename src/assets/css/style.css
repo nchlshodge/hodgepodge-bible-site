@@ -57,14 +57,38 @@ a:focus-visible, button:focus-visible {
 /* ---------- Header ---------- */
 .site-header {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 30px 0 26px;
+  padding: 24px 0;
+  position: relative;
 }
 .wordmark { font-size: 24px; font-weight: 600; font-style: italic; letter-spacing: 0.01em; }
 .wordmark span { color: var(--ribbon); }
 .site-nav { display: flex; align-items: center; gap: 28px; }
-.site-nav a { font-size: 12.5px; color: var(--text-dark-muted); }
+.site-nav a { font-size: 12.5px; color: var(--text-dark-muted); padding: 4px 0; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--text-dark); }
 .site-nav .sep { width: 1px; height: 12px; background: var(--rule); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: -8px -8px -8px 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-dark);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ---------- Hero (home only) ---------- */
 .hero { padding: 18px 0 84px; }
@@ -207,7 +231,45 @@ a:focus-visible, button:focus-visible {
   .spine { display: none; }
   .podcast-grid { grid-template-columns: 1fr; }
   .apps-grid, .notes-grid, .posts-grid { grid-template-columns: 1fr; }
-  .h1 { font-size: 36px; }
-  .site-nav { display: none; }
-  .article-title { font-size: 30px; }
+  .h1 { font-size: 34px; }
+  .article-title { font-size: 28px; }
+
+  /* Mobile nav: hamburger opens a dropdown panel under the header */
+  .nav-toggle { display: flex; }
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -22px;
+    right: -22px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--ink-raised);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 4px 22px 12px;
+    z-index: 30;
+  }
+  .site-nav.open { display: flex; }
+  .site-nav a {
+    padding: 15px 0;
+    font-size: 15px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-nav .sep { display: none; }
+
+  /* Tighter vertical rhythm so a phone isn't all empty space between sections */
+  .hero { padding: 8px 0 52px; }
+  .verse-card { padding: 28px 24px; }
+  .section { padding: 52px 0; }
+  .section-head { margin-bottom: 30px; }
+  .page-head { padding: 4px 0 36px; }
+  .article { padding: 8px 0 64px; }
+  .site-footer { padding: 48px 0 30px; }
+  .footer-top { margin-bottom: 30px; }
+
+  /* Comfortable touch targets on list-style links */
+  .ep-list li { padding: 15px 0; }
+  .note-link, .app-link { display: inline-block; padding: 4px 0; }
 }
