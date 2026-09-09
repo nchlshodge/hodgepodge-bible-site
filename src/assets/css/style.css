@@ -220,6 +220,13 @@ a:focus-visible, button:focus-visible {
 .footer-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 46px; flex-wrap: wrap; gap: 24px; }
 .footer-tag { font-family: 'Fraunces', serif; font-style: italic; font-size: 32px; }
 .footer-tag .accent { color: var(--ribbon); }
+.footer-support-link {
+  display: inline-block; margin-top: 10px;
+  font-family: 'Public Sans', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.03em; color: var(--ribbon);
+  border-bottom: 1px solid var(--ribbon-dim); padding-bottom: 2px;
+}
+.footer-support-link:hover { color: var(--text-dark); border-color: var(--rule); }
 .footer-nav { display: flex; gap: 22px; flex-wrap: wrap; }
 .footer-nav a { font-size: 12.5px; color: var(--text-dark-muted); }
 .footer-nav a:hover { color: var(--text-dark); }
