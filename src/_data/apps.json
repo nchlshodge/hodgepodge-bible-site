@@ -12,5 +12,12 @@
     "status": "Available now",
     "description": "Make prayer a daily habit instead of a Sunday-only one — short prompts that meet you before the day gets loud.",
     "url": "https://nchlshodge.github.io/groundwork/"
+  },
+  {
+    "name": "Rhythm",
+    "icon": "/assets/img/rhythm.png",
+    "status": "Available now",
+    "description": "Build a daily rhythm of Scripture, prayer, and reflection — and watch it take root as a tree that actually grows.",
+    "url": "https://nchlshodge.github.io/rhythm/"
   }
 ]
